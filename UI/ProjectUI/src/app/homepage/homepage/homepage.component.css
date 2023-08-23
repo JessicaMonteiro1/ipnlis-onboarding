@@ -1,0 +1,187 @@
+/* Estilo para o submenu */
+.submenu .dropdown-item:hover {
+  background-color: #e3d0d040; /* Defina a cor de fundo mais clara aqui */
+}
+  
+/* Estilo para alinhar o texto ao centro nos submenus */
+.text-center-submenu {
+  text-align: center;
+}
+  
+/* Estilo para o botão personalizado */
+.custom-button {
+  background-color: #3f454a; /* Mesma cor de fundo da navbar */
+  color: white; /* Letras brancas */
+  border: 1px solid white; /* Rebordo branco */
+  padding: 5px 10px; /* Espaçamento interno para o botão */
+  cursor: pointer; /* Mostrar cursor ao passar por cima do botão */
+  border-radius: 8px; /* Arredondar os cantos */
+}
+  
+.custom-button:hover {
+  background-color: #4d5259; /* Cor mais escura quando hover */
+}
+  
+  
+  .custom-button + .custom-button {
+    margin-left: 15px; /* Ajuste esse valor conforme necessário */
+  }
+  
+  .custom-text {
+    color: white; /* Define a cor do texto como branco ou outra cor legível */
+  }
+  
+  .footer {
+    color: white;
+    background-color: #343a40;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  
+  
+  
+  .container {
+    max-width: 100%; /* Define a largura máxima como 100% do elemento pai */
+    padding: 0;
+    margin: 0 auto; /* Centraliza horizontalmente o conteúdo */
+    box-sizing: border-box;
+  }
+  
+  
+  .main {
+    font-family: "Exo", sans-serif;
+    background-color: #fff;
+    padding: 0; /* Remova ou ajuste o padding conforme necessário */
+  }
+  
+  
+  .main-container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .side-nav {
+    width: 100vw;
+    max-width: 230px; /* Defina a largura máxima desejada */
+    min-height: calc(100vh - 70px);
+    background-color: #343a40;
+    color: #fff;
+    box-shadow: 5px 5px 5px #939393;
+  }
+  
+  
+  .main {
+    flex: 1; /* Ocupa o espaço restante */
+    padding: 30px; /* Adicione o padding desejado */
+    overflow: auto; /* Adiciona barra de rolagem caso o conteúdo exceda o espaço disponível */
+  }
+
+ 
+  .mb-3 {
+    text-align: center;
+    font-weight: bold;
+  }
+
+
+  /* Estilo para o botão "Sair" */
+.btn.btn-custom {
+  background-color: #3f454a; /* Cinza escuro */
+  color: white; /* Letras brancas */
+  border: 1px solid white; /* Borda branca */
+  padding: 5px 20px; /* Espaçamento interno para o botão */
+  cursor: pointer; /* Cursor ao passar o mouse */
+  border-radius: 8px; /* Cantos arredondados */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.btn.btn-custom:hover {
+  background-color: #4d5259; /* Cinza um pouco mais claro ao passar o mouse */
+}
+
+
+
+/* Estilo para os botões Sign In e Sign Up */
+.btn-primary.custom-btn {
+background-color: #0275e7db;
+border-color: white;
+color: white;
+}
+
+.btn-primary.custom-btn:hover {
+background-color: #448cd3;
+color: white;
+}
+
+.btn-success.custom-btn {
+background-color: #0275e7db;
+border-color: white;
+color: white;
+}
+
+.btn-success.custom-btn:hover {
+background-color: #448cd3;
+color: white;
+}
+
+/* Rebordo branco para os botões */
+.btn-white-border {
+border: 1px solid white;
+}
+
+/* Estilo para os botões Sign In e Sign Up no hover */
+.btn-white-border:hover {
+background-color: white;
+color: black;
+}
+
+
+.homepage-content {
+margin-bottom: -60px; /* Ajuste conforme necessário */
+}
+
+
+.homepage-image {
+width: 100%;
+height: calc(100vh - 60px); /* Ajuste conforme necessário */
+object-fit: cover;
+opacity: 0.8;
+
+}
+
+
+.image-overlay {
+position: absolute;
+top: 84px;
+bottom: 0px;
+left: 0;
+right: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.5);
+color: white;
+text-align: center;
+}
+
+.overlay-content {
+padding: 20px;
+}
+
+.overlay-title {
+font-size: 36px;
+margin-bottom: 10px;
+}
+
+.overlay-description {
+font-size: 18px;
+margin-bottom: 20px;
+}
+
+.custom-btn {
+margin-top: 10px;
+}

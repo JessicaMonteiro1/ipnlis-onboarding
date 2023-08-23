@@ -1,0 +1,38 @@
+<div class="outer">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <i class="fa-solid fa-gear"></i> ProjectHub
+      </a>
+      <div class="d-flex align-items-center">
+        <ng-container *ngIf="!isAuthenticated()">
+          <a class="btn btn-primary mx-2 custom-btn btn-white-border" routerLink="/login">Sign In</a>
+          <a class="btn btn-success custom-btn btn-white-border" routerLink="/signup">Sign Up</a>
+        </ng-container>
+        <ng-container *ngIf="isAuthenticated()">
+          <h5 class="custom-text" style="margin-right: 20px;">Hi, {{userNome}}!</h5>
+          <button class="btn btn-custom" (click)="logout()">Sign out</button>
+        </ng-container>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="homepage-content">
+  <img class="homepage-image" src="assets/background2.jpg" alt="Imagem de Projeto">
+  <div class="image-overlay">
+    <div class="overlay-content">
+      <h1 class="overlay-title">
+        {{'Project Management Platform' | translate}}
+      </h1>
+      <p class="overlay-description">
+        {{'Manage your projects efficiently and collaboratively.' | translate}}
+      </p>
+      <a class="btn btn-primary btn-lg custom-btn" routerLink="/login">{{'Read more' | translate}}</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer bg-dark">
+  <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+</footer>

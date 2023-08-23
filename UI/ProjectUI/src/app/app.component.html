@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <span class="form-inline">
+    <select name="" class="form-control bg-dark border-0 rounded-0 text-white" #selectedLang (change)="switchLang(selectedLang.value)">
+      <option disabled selected value="">{{ 'Language' | translate }}</option>
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+        [selected]="lang === translate.currentLang">
+        {{ lang === 'en' ? 'English' : 'Portuguese' }}
+      </option>
+    </select>
+  </span>
+</nav>
+
+
+
+
+
+
+
+
+
+
+  <router-outlet>
+  </router-outlet>

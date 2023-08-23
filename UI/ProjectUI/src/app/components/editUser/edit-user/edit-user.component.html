@@ -1,0 +1,68 @@
+
+<div class="outer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <i class="fa-solid fa-gear"></i> ProjectHub
+        </a>
+        <div class="d-flex align-items-center">
+          <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="main-container">
+        <div class="side-nav">
+            <app-side-nav></app-side-nav>
+        </div>
+        <div class="main">
+            <ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+                <div class="container my-5">
+                    <h2 class="mb-3 text-center">{{'Edit User' | translate}}</h2>
+                    <br>
+                    <div class="alert alert-warning" *ngIf="userDetails.telefone && userDetails.telefone.length !== 9">
+                      {{'The phone number must be exactly 9 digits long.' | translate}}'
+                    </div>
+                    <div class="alert alert-warning" *ngIf="userDetails.email && !isEmailValid(userDetails.email)">
+                      {{'Please enter a valid email address.' | translate}}'
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="col-4">
+                        <form #form="ngForm" (ngSubmit)="updateUser()">
+                          <div class="mb-3">
+                            <label for="id" class="form-label form-label-left">ID</label>
+                            <input type="text" class="form-control" id="id" readonly name="id" [(ngModel)]="userDetails.userID">
+                          </div>
+                          <div class="mb-3">
+                            <label for="nome" class="form-label form-label-left">{{'Name' | translate}}</label>
+                            <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="userDetails.userNome">
+                          </div>
+                          <div class="mb-3">
+                            <label for="perfil" class="form-label form-label-left">{{'Profile' | translate}}</label>
+                            <input type="text" class="form-control" id="role"  name="role" [(ngModel)]="userDetails.role">
+                          </div>
+                          <div class="mb-3">
+                            <label for="email" class="form-label form-label-left">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userDetails.email">
+                          </div>
+                          <div class="mb-3">
+                            <label for="telefone" class="form-label form-label-left">{{'Phone Number' | translate}}</label>
+                            <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="userDetails.telefone">
+                          </div>
+                          <button type="submit" class="btn btn-success" [disabled]="userDetails.telefone && userDetails.telefone.length !== 9 || (userDetails.email && !isEmailValid(userDetails.email)) || !form.valid">{{'Save' | translate}}</button>
+                          <a routerLink="/UtilizadoresDto" class="btn btn-secondary ms-3">{{'Cancel' | translate}}</a>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </ng-container>
+        </div>
+    </div>
+    <footer class="footer bg-dark">
+        <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+      </footer>
+  </div>

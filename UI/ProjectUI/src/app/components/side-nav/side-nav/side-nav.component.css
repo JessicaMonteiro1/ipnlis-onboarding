@@ -1,0 +1,64 @@
+  .nav-items {
+    padding-top: 40px;
+    
+
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 25px 50px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(1, 38, 69);
+    }
+  }
+
+  .item-icon {
+    font-size: 1.5rem; /* Tamanho do ícone */
+    margin-right: 15px; /* Espaçamento entre o ícone e o texto */
+    vertical-align: middle;
+  }
+
+  .item-text {
+    font-size: 1.1rem; /* Tamanho da fonte desejado */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    flex: 1; /* Para ocupar espaço restante horizontalmente */
+    @media only screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+
+  .item-container {
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* Adicione este estilo ao seu arquivo CSS para tornar os links brancos */
+a {
+  color: white;
+  text-decoration: none; /* Remover sublinhado dos links */
+}
+
+a:hover {
+  color: #ccc; /* Cor do link quando hover */
+}
+
+
+.main {
+  font-family: "Exo", sans-serif;
+  background-color: #f7e6e67b;
+  padding: 0; /* Remova ou ajuste o padding conforme necessário */
+}
+
+
+.main-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+

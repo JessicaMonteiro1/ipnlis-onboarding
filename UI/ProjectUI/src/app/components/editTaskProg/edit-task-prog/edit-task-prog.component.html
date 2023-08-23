@@ -1,0 +1,79 @@
+<div class="outer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <i class="fa-solid fa-gear"></i> ProjectHub
+        </a>
+        <div class="d-flex align-items-center">
+          <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="main-container">
+        <div class="side-nav">
+            <app-side-nav></app-side-nav>
+        </div>
+        <div class="main">
+
+            <div class="container my-5">
+                <h2 class="mb-3 text-center">{{'Edit Task' | translate}}</h2>
+                <br>
+                <div class="row justify-content-center">
+                  <div class="col-4">
+                    <form #form="ngForm" (ngSubmit)="updateTarefa()">
+                    <div class="alert alert-warning" *ngIf="isDataInicioBeforeToday()">
+                      {{'The start date cannot be earlier than today.' | translate}}'
+                    </div> 
+                    <div class="alert alert-warning" *ngIf="isDataLimiteBeforeDataInicio()">
+                      {{'The deadline cannot be earlier than the start date.' | translate}}'
+                    </div>       
+                      <div class="mb-3">
+                        <label for="descricao" class="form-label form-label-left">{{'Description' | translate}}</label>
+                        <input type="text" class="form-control" id="descricao" readonly name="descricao" [(ngModel)]="tarefasDetails.tarefaNome" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="programador" class="form-label form-label-left">{{'Developer' | translate}}</label>
+                        <select class="form-control" id="programador" readonly name="programador" [(ngModel)]="tarefasDetails.userNome" required>
+                          <option *ngFor="let programador of programadores" [value]="programador">{{ programador }}</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="projeto" class="form-label form-label-left">{{'Project' | translate}}</label>
+                        <select class="form-control" id="projeto" readonly name="projeto" [(ngModel)]="tarefasDetails.projetoNome" required>
+                          <option *ngFor="let projeto of projetos" [value]="projeto">{{ projeto }}</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="estado" class="form-label form-label-left">{{'State' | translate}}</label>
+                        <select class="form-control" id="estado" name="estado" [(ngModel)]="tarefasDetails.estado" required>
+                          <option value="To Start">{{'To Start' | translate}}</option>
+                          <option value="In Progress">{{'In Progress' | translate}}</option>
+                          <option value="Finished">{{'Finished' | translate}}</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="datainicio" class="form-label form-label-left">{{'Start Date' | translate}}</label>
+                        <input type="date" class="form-control" id="datainicio" name="datainicio" [(ngModel)]="tarefasDetails.dataInicio" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="datalimite" class="form-label form-label-left">{{'Deadline' | translate}}</label>
+                        <input type="date" class="form-control" id="datalimite" readonly name="datalimite" [(ngModel)]="tarefasDetails.dataLimite" required>
+                      </div>
+                      <button type="submit" class="btn btn-success" [disabled]="!form.valid">{{'Save' | translate}}</button>
+                      <a routerLink="/dashboard" class="btn btn-secondary ms-3">{{'Cancel' | translate}}</a>
+                    </form>
+                    </div>
+                </div>
+              </div>  
+        </div>
+    </div>
+    <footer class="footer bg-dark">
+        <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+      </footer>
+  </div>
+

@@ -1,0 +1,13 @@
+GESTORES PROJETO
+Email                      Password
+--------------------------------------
+paulo@gmail.com            Admin123!
+laura@gmail.com            Admin123!
+
+
+
+PROGRAMADORES
+Email                      Password
+--------------------------------------
+gui@gmail.com              Admin123!
+sofia@gmail.com            Admin123!

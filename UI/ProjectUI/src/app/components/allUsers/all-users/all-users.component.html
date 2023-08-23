@@ -1,0 +1,28 @@
+<ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+<div class="container my-5">
+    <table class="table table-hover" *ngIf="users && users.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">{{'User' | translate}}</th>
+            <th scope="col">{{'Profile' | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user.userNome}}</td>
+            <td>{{user.role}}</td>
+
+          </tr>
+        </tbody>
+    </table>
+    <br>
+    <div  class="text-center">
+      <ng-container *ngIf="!users || users.length <= 0">
+          <i class="far fa-face-frown-open" style="font-size: 40px;"></i>
+          <br>
+          <br>
+          <p>{{'No Project Managers found' | translate}}</p>
+      </ng-container>
+      </div>
+    </div>
+</ng-container>

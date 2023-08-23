@@ -1,0 +1,35 @@
+<div class="container my-5">
+    <h2 class="mb-3 text-center">{{'Add Project Manager' | translate}}</h2>
+    <br>
+    <div class="alert alert-warning" *ngIf="addgestorProjetoRequest.telefone && addgestorProjetoRequest.telefone.length !== 9">
+      {{'The phone number must be exactly 9 digits long.' | translate}}
+    </div>
+    <div class="alert alert-warning" *ngIf="addgestorProjetoRequest.email && !isEmailValid(addgestorProjetoRequest.email)">
+      {{'Please enter a valid email address.' | translate}}
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <form #form="ngForm" (ngSubmit)="addGestorProjeto()">
+          <div class="mb-3">
+            <label for="nome" class="form-label text-start">{{'Name' | translate}}</label>
+            <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="addgestorProjetoRequest.userNome" required>
+          </div>
+          <div class="mb-3">
+            <label for="perfil" class="form-label text-start">{{'Profile' | translate}}</label>
+            <input type="text" class="form-control" id="perfil" name="perfil" [(ngModel)]="addgestorProjetoRequest.role" required disabled>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-start">{{'Email' | translate}}</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="addgestorProjetoRequest.email" required>
+          </div>
+          <div class="mb-3">
+            <label for="telefone" class="form-label text-start">{{'Phone number' | translate}}</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="addgestorProjetoRequest.telefone" required>
+          </div>
+          <a routerLink="/UtilizadoresDto" class="btn btn-secondary">{{'Cancel' | translate}}</a>
+          <button type="submit" class="btn btn-success ms-3" [disabled]="addgestorProjetoRequest.telefone && addgestorProjetoRequest.telefone.length !== 9 || (addgestorProjetoRequest.email && !isEmailValid(addgestorProjetoRequest.email)) || !form.valid">{{'Add' | translate}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

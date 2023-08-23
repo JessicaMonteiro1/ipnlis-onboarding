@@ -1,0 +1,16 @@
+<ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+    <div class="top-section">
+      <app-top-widgets></app-top-widgets>
+    </div>
+    <div class="middle-section">
+      <div class="widget left">
+        <app-all-users></app-all-users>
+      </div>
+      <div class="widget right">
+        <app-all-projects></app-all-projects>
+      </div>
+    </div>
+
+  </ng-container>
+
+

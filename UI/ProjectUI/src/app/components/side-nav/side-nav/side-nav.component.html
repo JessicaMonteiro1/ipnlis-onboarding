@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css">
+
+<div class="nav-items">
+  <ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+    <div class="nav-item">
+      <div class="item-container">
+        <i class="fas fa-gauge item-icon"></i>
+        <h4 class="item-text"><a routerLink="/dashboard">Dashboard</a></h4>
+      </div>
+    </div>
+    <div class="nav-item">
+      <div class="item-container">
+        <i class="fa-solid fa-user item-icon"></i>
+        <h4 class="item-text"><a routerLink="/UtilizadoresDto">{{'Users' | translate}}</a></h4>
+      </div>
+    </div>
+    <div class="nav-item">
+      <div class="item-container">
+        <i class="fa-solid fa-diagram-project item-icon"></i>
+        <h4 class="item-text"><a routerLink="/Projetos">{{'Projects' | translate}}</a></h4>
+      </div>
+    </div>
+    <div class="nav-item">
+      <div class="item-container">
+        <i class="fa-solid fa-bars-progress item-icon"></i>
+        <h4 class="item-text"><a routerLink="/Tarefas">{{'Tasks' | translate}}</a></h4>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="role === 'Programador' || role === 'Developer'">
+    <div class="nav-item">
+      <div class="item-container">
+        <i class="fa-solid fa-bars-progress item-icon"></i>
+        <h4 class="item-text">{{'Tasks' | translate}}</h4>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+

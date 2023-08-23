@@ -1,0 +1,64 @@
+
+
+
+<div class="outer">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <i class="fa-solid fa-gear"></i> ProjectHub
+      </a>
+      <div class="d-flex align-items-center">
+        <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container">
+  <div class="main-container">
+      <div class="side-nav">
+          <app-side-nav></app-side-nav>
+      </div>
+      <div class="main">
+        <ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+              <div class="container my-5">
+                  <h2 class="mb-3">{{'Users' | translate}}</h2>
+                  <table class="table table-striped" *ngIf="users && users.length > 0">
+                      <thead>
+                          <tr>
+                            <th scope="col">{{'Name' | translate}}</th>
+                            <th scope="col">{{'Profile' | translate}}</th>
+                            <th scope="col">{{'Email' | translate}}</th>
+                            <th scope="col">{{'Phone Number' | translate}}</th>
+                          </tr>
+                        </thead>
+                      <tbody>
+                        <tr *ngFor="let user of users">
+                          <td>{{user.userNome}}</td>
+                          <td>{{user.role}}</td>
+                          <td>{{user.email}}</td>
+                          <td>{{user.telefone}}</td>
+                          <td><a [routerLink]="['/UtilizadoresDto', 'edit', user.userID]"><i class="fa-solid fa-user-pen"></i></a></td>
+                          <td class="icon-spacing"><a [routerLink]="['/UtilizadoresDto', 'delete', user.userID]"><i class="fa-solid fa-trash-can"></i></a></td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  <br>
+                  <div  class="text-center">
+                    <ng-container *ngIf="!users || users.length <= 0">
+                        <i class="far fa-face-frown-open" style="font-size: 40px;"></i>
+                        <br>
+                        <br>
+                        <p>{{'No Project Managers found' | translate}}</p>
+                    </ng-container>
+                    </div>
+                  </div>
+              </ng-container>
+      </div>
+  </div>
+  <footer class="footer bg-dark">
+      <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+    </footer>
+</div>

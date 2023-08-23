@@ -1,0 +1,38 @@
+
+<div class="container my-5">
+    <h2 class="mb-3">Tasks</h2>
+    <table class="table table-striped" *ngIf="tarefas && tarefas.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">{{'Description' | translate}}</th>
+            <th scope="col">{{'Developer' | translate}}</th>
+            <th scope="col">{{'Project' | translate}}</th>
+            <th scope="col">{{'State' | translate}}</th>
+            <th scope="col">{{'Start Date' | translate}}</th>
+            <th scope="col">{{'Deadline' |translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tarefa of tarefas">
+            <td>{{tarefa.tarefaNome}}</td>
+            <td>{{tarefa.userNome}}</td>
+            <td>{{tarefa.projetoNome}}</td>
+            <td>{{tarefa.estado}}</td>
+            <td>{{ tarefa.dataInicio | date: 'dd/MM/yyyy' }}</td>
+            <td>{{tarefa.dataLimite  | date: 'dd/MM/yyyy'}}</td>
+            <td><a [routerLink]="['/Tarefas', 'editP', tarefa.tarefaID]"><i class="fa-solid fa-user-pen"></i></a></td>
+          </tr>
+        </tbody>
+    </table>
+    <br>
+    <div  class="text-center">
+    <ng-container *ngIf="!tarefas || tarefas.length <= 0">
+        <i class="far fa-face-frown-open" style="font-size: 40px;"></i>
+        <br>
+        <br>
+        <p>{{'No tasks found' | translate}}</p>
+    </ng-container>
+    </div>
+  </div>
+
+  

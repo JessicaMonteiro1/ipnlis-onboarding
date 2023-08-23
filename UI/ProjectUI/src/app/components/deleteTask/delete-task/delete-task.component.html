@@ -1,0 +1,60 @@
+<div class="outer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <i class="fa-solid fa-gear"></i> ProjectHub
+        </a>
+        <div class="d-flex align-items-center">
+          <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="main-container">
+        <div class="side-nav">
+            <app-side-nav></app-side-nav>
+        </div>
+        <div class="main">
+
+            <div class="container my-5">
+                <h2 class="mb-3 text-center">{{'Delete Task' | translate}}</h2>
+                <br> 
+                <div class="row justify-content-center">
+                  <div class="col-4">
+                    <form #form="ngForm">
+                      <div class="mb-3">
+                        <label for="descricao" class="form-label form-label-left">{{'Description' | translate}}</label>
+                        <input type="text" class="form-control" id="descricao" name="descricao" [(ngModel)]="tarefasDetails.tarefaNome">
+                      </div>
+                      <div class="mb-3">
+                        <label for="programador" class="form-label form-label-left">{{'Developer' | translate}}</label>
+                        <input type="text" class="form-control" id="programador" name="programador" [(ngModel)]="tarefasDetails.userNome">
+                      </div>
+                      <div class="mb-3">
+                        <label for="projeto" class="form-label form-label-left">{{'Project' | translate}}</label>
+                        <input type="text" class="form-control" id="projeto" name="projeto" [(ngModel)]="tarefasDetails.projetoNome">
+                      </div>
+                      <div class="mb-3">
+                        <label for="estado" class="form-label form-label-left">{{'State' | translate}}</label>
+                        <input type="text" class="form-control" id="estado" name="estado" [(ngModel)]="tarefasDetails.estado">
+                      </div>
+                      <a routerLink="/Tarefas" class="btn btn-secondary">{{'Cancel' | translate}}</a>
+                      <button type="button" class="btn btn-danger ms-3" (click)="deleteTarefa(tarefasDetails.tarefaID)">{{'Delete' | translate}}</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            
+            
+            
+            
+        </div>
+    </div>
+    <footer class="footer bg-dark">
+        <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+      </footer>
+  </div>

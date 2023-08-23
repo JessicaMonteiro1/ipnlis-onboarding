@@ -1,0 +1,75 @@
+<div class="outer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">
+          <i class="fa-solid fa-gear"></i> ProjectHub
+        </a>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+<div class="backsignup">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Sign Up</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['userNome'].dirty && signUpForm.hasError('required', 'userNome')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="userNome" type="text" placeholder="{{'Name' | translate}}">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['userNome'].dirty && signUpForm.hasError('required', 'userNome')" class="text-danger">{{'*Name required' | translate}}</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['role'].dirty && signUpForm.hasError('required', 'role')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="role" type="text" placeholder="{{'User Type (Project Manager or Developer)' | translate}}">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['role'].dirty && signUpForm.hasError('required', 'role')" class="text-danger">{{'*User type required' | translate}}</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['telefone'].dirty && signUpForm.hasError('required', 'telefone')">
+                                    <span class="fa fa-mobile-screen-button p-2"></span>
+                                    <input formControlName="telefone" type="text" placeholder="{{'Phone Number' | translate}}">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['telefone'].dirty && signUpForm.hasError('required', 'telefone')" class="text-danger">{{'*Phone number required' | translate}}</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
+                                    <span class="fa fa-regular fa-envelope p-2"></span>
+                                    <input formControlName="email" type="text" placeholder="Email">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')"  class="text-danger">{{'*Email required' | translate}}</small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" type="password" placeholder="Password">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')" class="text-danger">{{'*Password required' | translate}}</small>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">Sign Up</button>
+                            <div class="text-center pt-4 text-muted">{{'Already have an account?' | translate}}' <a id="forget" routerLink="/login">Login</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer bg-dark">
+    <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+  </footer>
+
+
+

@@ -1,0 +1,31 @@
+
+
+    <div class="container my-5">
+        <table class="table table-hover" *ngIf="projects&& projects.length > 0">
+            <thead>
+              <tr>
+                <th scope="col">{{'Project' | translate}}</th>
+              <th scope="col">{{'Project Manager' | translate}}</th>
+              <th scope="col">{{'State' | translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projects">
+                <td>{{project.projetoNome}}</td>
+                <td>{{project.userNome}}</td>
+                <td>{{project.estado}}</td>
+              </tr>
+            </tbody>
+        </table>
+        <br>
+        <div  class="text-center">
+          <ng-container *ngIf="!projects || projects.length <= 0">
+              <i class="far fa-face-frown-open" style="font-size: 40px;"></i>
+              <br>
+              <br>
+              <p>{{'No projects found' | translate}}</p>
+          </ng-container>
+          </div>
+        </div>
+
+

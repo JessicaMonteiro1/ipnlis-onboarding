@@ -1,0 +1,61 @@
+
+
+<div class="outer">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <i class="fa-solid fa-gear"></i> ProjectHub
+      </a>
+      <div class="d-flex align-items-center">
+        <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+<ng-container *ngIf="role === 'Gestor Projeto' || role === 'Project Manager'">
+<div class="container">
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-nav></app-side-nav>
+    </div>
+    <div class="main">
+      <app-main></app-main>
+    </div>
+  </div>
+  <footer class="footer bg-dark">
+    <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+  </footer>
+</div>
+</ng-container>
+
+
+
+<ng-container *ngIf="role === 'Programador' || role === 'Developer'">
+  <div class="container">
+    <div class="main-container">
+      <div class="side-nav">
+        <app-side-nav></app-side-nav>
+      </div>
+    </div>
+
+    <div class="main">
+      <app-all-tasks-prog class="center-content"></app-all-tasks-prog>
+
+    </div>
+  </div>
+
+    <footer class="footer bg-dark">
+      <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+    </footer>
+
+  </ng-container>
+
+
+
+
+
+

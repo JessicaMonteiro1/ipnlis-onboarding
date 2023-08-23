@@ -1,0 +1,70 @@
+
+
+<div class="outer">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">
+          <i class="fa-solid fa-gear"></i> ProjectHub
+        </a>
+        <div class="d-flex align-items-center">
+          <h5 class="custom-text" style="margin-right: 20px;">{{ 'Hi' | translate }}, {{ userNome }}!</h5>
+          <button class="btn btn-custom" (click)="logout()">{{ 'Sign out' | translate }}</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  
+
+
+  <div class="container">
+    <div class="main-container">
+        <div class="side-nav">
+            <app-side-nav></app-side-nav>
+        </div>
+        <div class="main">
+            <div class="container my-5">
+                <h2 class="mb-3 text-center">{{'Add Project' | translate}}</h2>
+                <br>
+                <div class="row justify-content-center">
+                  <div class="col-4">
+                    <form #form="ngForm" (ngSubmit)="addProjeto()">
+                      <div class="mb-3">
+                        <label for="nome" class="form-label form-label-left">{{'Name' | translate}}</label>
+                        <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="addProjetoRequest.projetoNome" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="gestor" class="form-label form-label-left">{{'Project Manager' | translate}}</label>
+                        <select class="form-control" id="gestor" name="gestor" [(ngModel)]="addProjetoRequest.userNome" required>
+                          <option *ngFor="let gestor of gestores" [value]="gestor">{{ gestor }}</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="estado" class="form-label form-label-left">{{'State' | translate}}</label>
+                        <select class="form-control" id="estado" name="estado" [(ngModel)]="addProjetoRequest.estado" required>
+                          <option value="To Start">To Start</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="orcamento" class="form-label form-label-left">{{'Budget' | translate}}</label>
+                        <input type="number" class="form-control" id="orcamento" name="orcamento" [(ngModel)]="addProjetoRequest.orcamento" required min="0">
+                      </div>
+                      <div class="mb-3">
+                        <label for="cliente" class="form-label form-label-left">{{'Customer' | translate}}</label>
+                        <input type="text" class="form-control" id="cliente" name="cliente" [(ngModel)]="addProjetoRequest.clienteNome" required>
+                      </div>
+                      <button type="submit" class="btn btn-success" [disabled]="!form.valid">{{'Add' | translate}}</button>
+                      <a routerLink="/Projetos" class="btn btn-secondary ms-3">{{'Cancel' | translate}}</a>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              
+            
+        </div>
+    </div>
+    <footer class="footer bg-dark">
+        <p>&copy; {{'2023 ProjectHub. All rights reserved.' | translate}}</p>
+      </footer>
+  </div>
+
+
